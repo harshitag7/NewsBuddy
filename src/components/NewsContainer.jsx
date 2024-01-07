@@ -6,7 +6,7 @@ const NewsContainer = ({category}) => {
     const [articles, setArticles] = useState([]);
 
     useEffect(()=>{
-        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=da737ec33a4649be8497761178f6ed4d`
+        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${process.env.React_App_API_KEY}`
         fetch(url).then((data) => data.json()).then((data)=>{setArticles(data.articles)})
     },[category])
 
